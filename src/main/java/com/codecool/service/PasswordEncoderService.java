@@ -1,6 +1,7 @@
 package com.codecool.service;
 
 import org.apache.commons.codec.binary.Base64;
+import org.springframework.stereotype.Service;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -13,6 +14,7 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 
+@Service
 public class PasswordEncoderService {
 
     private static final String SECRET_KEY_1 = "ssdkF$HUy2A#D%kd";
