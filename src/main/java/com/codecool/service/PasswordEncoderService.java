@@ -42,4 +42,5 @@ public class PasswordEncoderService {
         byte[] decryptedBytes = cipher.doFinal(Base64.decodeBase64(encrypted));
         return new String(decryptedBytes);
     }
+}
 
