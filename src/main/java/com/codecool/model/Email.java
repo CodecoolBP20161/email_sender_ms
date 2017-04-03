@@ -11,6 +11,7 @@ import java.util.UUID;
 @Data
 @Entity
 public class Email {
+    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$";
 
     @Id
     private String id = UUID.randomUUID().toString();
@@ -33,10 +34,9 @@ public class Email {
     private String bcc;
 
     public void setReceivers(String receiver) throws InvalidEmailException {
-        if (!receiver.matches("^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$")) {
+        if (!receiver.matches(EMAIL_PATTERN)) {
             throw new InvalidEmailException();
-        } else {
-            this.receivers.add(receiver);
+        }
+        this.receivers.add(receiver);
         }
     }
-}
