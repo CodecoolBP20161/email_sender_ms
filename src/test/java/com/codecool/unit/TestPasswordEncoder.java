@@ -5,8 +5,9 @@ import com.codecool.service.PasswordEncoderService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -17,10 +18,11 @@ import java.security.NoSuchAlgorithmException;
 
 import static junit.framework.TestCase.assertTrue;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest
 public class TestPasswordEncoder {
 
-    @InjectMocks
+    @Autowired
     private PasswordEncoderService service;
 
     private String password;
