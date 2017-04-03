@@ -2,8 +2,10 @@ package com.codecool.model;
 
 import com.codecool.exception.InvalidEmailException;
 import lombok.Data;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -16,15 +18,21 @@ public class Email {
     @Id
     private String id = UUID.randomUUID().toString();
 
+    @NotNull
+    @NotEmpty
     @ManyToOne
     private Client client;
 
+    @NotNull
+    @NotEmpty
     private String subject;
 
     @ElementCollection
     @CollectionTable(name = "receivers", joinColumns = @JoinColumn(name = "email_id"))
     private Set<String> receivers = new HashSet<>();
 
+    @NotNull
+    @NotEmpty
     private String body;
 
     @org.hibernate.validator.constraints.Email
