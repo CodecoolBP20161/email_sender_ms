@@ -3,7 +3,6 @@ package com.codecool.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -22,8 +21,6 @@ public class Email {
 
     @ElementCollection
     @CollectionTable(name = "receivers", joinColumns = @JoinColumn(name = "email_id"))
-    @org.hibernate.validator.constraints.Email
-    @Valid
     private Set<String> receivers = new HashSet<>();
 
     private String body;
@@ -34,13 +31,7 @@ public class Email {
     @org.hibernate.validator.constraints.Email
     private String bcc;
 
-    @org.hibernate.validator.constraints.Email
-    public void setReceivers(String receiver) {
+    public void setReceivers(@org.hibernate.validator.constraints.Email String receiver) {
         this.receivers.add(receiver);
     }
-
-    public void setReceivers(Set<String> receivers) {
-        this.receivers = receivers;
-    }
-
 }
