@@ -25,7 +25,7 @@ public class TestEmail {
 
     @Test
     public void testRecipientsAcceptsValidMailAddress() throws Exception {
-        email.setReceivers(validMail);
+//        email.setReceivers(validMail);
         assertTrue(email.getReceivers().contains(validMail));
     }
 
