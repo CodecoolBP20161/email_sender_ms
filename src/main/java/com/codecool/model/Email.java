@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,9 +19,8 @@ public class Email {
     @Id
     private String id = UUID.randomUUID().toString();
 
-    @NotNull
-    @NotEmpty
     @ManyToOne
+    @NotNull
     private Client client;
 
     @NotNull
@@ -29,6 +29,7 @@ public class Email {
 
     @ElementCollection
     @CollectionTable(name = "receivers", joinColumns = @JoinColumn(name = "email_id"))
+    @Valid
     private Set<String> receivers = new HashSet<>();
 
     @NotNull
@@ -42,7 +43,7 @@ public class Email {
     private String bcc;
 
     public void setReceivers(String receiver) throws InvalidEmailException {
-        if (!receiver.matches(EMAIL_PATTERN)) {
+        if (receiver == null || !receiver.matches(EMAIL_PATTERN)) {
             throw new InvalidEmailException();
         }
         this.receivers.add(receiver);
