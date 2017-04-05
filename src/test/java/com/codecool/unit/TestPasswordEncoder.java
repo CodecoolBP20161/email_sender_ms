@@ -36,7 +36,8 @@ public class TestPasswordEncoder {
 
     @Test
     public void testPasswordGettingEncrypted() {
-        assertTrue(!encodedPassword.equals(password));
+        // should fail
+        assertTrue(encodedPassword.equals(password));
     }
 
     @Test
