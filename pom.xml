@@ -124,6 +124,9 @@
                 <configuration>
                     <testSourceDirectory>${basedir}/src/test/java/</testSourceDirectory>
                     <testClassesDirectory>${project.build.directory}/test-classes/</testClassesDirectory>
+                    <include>**/*Test.java</include>
+                    <include>**/Test*.java</include>
+                    <include>**/*IT.java</include>
                 </configuration>
             </plugin>
         </plugins>
