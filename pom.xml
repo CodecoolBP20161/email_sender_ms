@@ -122,9 +122,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19.1</version>
                 <configuration>
-                    <includes>
-                        <include>TestPasswordEncoder.java</include>
-                    </includes>
+                    <testSourceDirectory>${basedir}/src/test/java/</testSourceDirectory>
+                    <testClassesDirectory>${project.build.directory}/test-classes/</testClassesDirectory>
                 </configuration>
             </plugin>
         </plugins>
