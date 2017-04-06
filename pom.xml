@@ -118,18 +118,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
-                <configuration>
-                    <testSourceDirectory>${basedir}/src/test/java/</testSourceDirectory>
-                    <testClassesDirectory>${project.build.directory}/test-classes/</testClassesDirectory>
-                    <include>**/*Test.java</include>
-                    <include>**/Test*.java</include>
-                    <include>**/*IT.java</include>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 
