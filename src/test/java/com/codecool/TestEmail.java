@@ -1,4 +1,4 @@
-package com.codecool.unit;
+package com.codecool;
 
 import com.codecool.exception.InvalidEmailException;
 import com.codecool.model.Email;

@@ -1,4 +1,4 @@
-package com.codecool.unit;
+package com.codecool;
 
 
 import com.codecool.service.PasswordEncoderService;
