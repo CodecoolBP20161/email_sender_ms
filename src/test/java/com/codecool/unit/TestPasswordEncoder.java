@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.unit;
 
 
 import com.codecool.service.PasswordEncoderService;
@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.crypto.BadPaddingException;
@@ -21,7 +20,6 @@ import static junit.framework.TestCase.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-@ContextConfiguration
 public class TestPasswordEncoder {
 
     @Autowired
