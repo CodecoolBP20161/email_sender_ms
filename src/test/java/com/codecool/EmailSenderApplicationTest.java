@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class EmailSenderApplicationTests {
+public class EmailSenderApplicationTest {
 
 	@Autowired
 	private TestRestTemplate testRestTemplate;
