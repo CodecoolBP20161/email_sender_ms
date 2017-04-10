@@ -19,7 +19,7 @@ public class Client {
     private String userName;
 
     @Setter(AccessLevel.NONE)
-    private String ApiKey = UUID.randomUUID().toString();
+    private String apiKey = UUID.randomUUID().toString();
 
     private String serverAddress;
 
