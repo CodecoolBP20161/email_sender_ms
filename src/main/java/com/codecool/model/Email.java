@@ -1,19 +1,20 @@
 package com.codecool.model;
 
-import com.codecool.exception.InvalidEmailException;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.UUID;
 
 @Data
 @Entity
 public class Email {
-    private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$";
 
     @Id
+    @Setter(AccessLevel.NONE)
     private String id = UUID.randomUUID().toString();
 
     @ManyToOne
@@ -21,9 +22,8 @@ public class Email {
 
     private String subject;
 
-    @ElementCollection
-    @CollectionTable(name = "receivers", joinColumns = @JoinColumn(name = "email_id"))
-    private Set<String> receivers = new HashSet<>();
+    @org.hibernate.validator.constraints.Email
+    private String receiver;
 
     private String body;
 
@@ -32,11 +32,4 @@ public class Email {
 
     @org.hibernate.validator.constraints.Email
     private String bcc;
-
-    public void setReceivers(String receiver) throws InvalidEmailException {
-        if (!receiver.matches(EMAIL_PATTERN)) {
-            throw new InvalidEmailException();
-        }
-        this.receivers.add(receiver);
-        }
-    }
+}
