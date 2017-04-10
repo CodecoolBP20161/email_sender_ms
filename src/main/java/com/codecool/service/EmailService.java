@@ -1,6 +1,7 @@
 package com.codecool.service;
 
 import com.codecool.model.Email;
+import com.codecool.repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -11,7 +12,18 @@ public class EmailService {
     private SimpleMailMessage message;
 
     @Autowired
+    EmailRepository emailRepository;
+
+    @Autowired
     JavaMailSender javaMailSender;
+
+    public Email save(Email email) {
+        return emailRepository.save(email);
+    }
+
+    public Email findById(String id) {
+        return emailRepository.findById(id);
+    }
 
     public void sendEmail(Email email) {
         message = new SimpleMailMessage();
